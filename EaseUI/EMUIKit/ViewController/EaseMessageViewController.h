@@ -521,6 +521,8 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
                  andIndexPath:(NSIndexPath *)indexPath
                   messageType:(EMMessageBodyType)messageType;
 
+- (void)didFinishLoadData;
+
 /*!
  @method
  @brief 判断消息是否要发送已读回执
