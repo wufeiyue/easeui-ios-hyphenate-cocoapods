@@ -138,14 +138,14 @@ typedef enum : NSUInteger {
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     
-    [[EaseBaseMessageCell appearance] setSendBubbleBackgroundImage:[[UIImage imageNamed:@"EaseUIResource.bundle/chat_sender_bg"] stretchableImageWithLeftCapWidth:5 topCapHeight:35]];
-    [[EaseBaseMessageCell appearance] setRecvBubbleBackgroundImage:[[UIImage imageNamed:@"EaseUIResource.bundle/chat_receiver_bg"] stretchableImageWithLeftCapWidth:35 topCapHeight:35]];
+    [[EaseBaseMessageCell appearance] setSendBubbleBackgroundImage:[[UIImage imageNamed:@"chat_sender_bg"] stretchableImageWithLeftCapWidth:5 topCapHeight:35]];
+    [[EaseBaseMessageCell appearance] setRecvBubbleBackgroundImage:[[UIImage imageNamed:@"chat_receiver_bg"] stretchableImageWithLeftCapWidth:35 topCapHeight:35]];
     
-    NSArray *array = [[NSArray alloc] initWithObjects: [UIImage imageNamed:@"EaseUIResource.bundle/chat_sender_audio_playing_full"],[UIImage imageNamed:@"EaseUIResource.bundle/chat_sender_audio_playing_000"], [UIImage imageNamed:@"EaseUIResource.bundle/chat_sender_audio_playing_001"], [UIImage imageNamed:@"EaseUIResource.bundle/chat_sender_audio_playing_002"], [UIImage imageNamed:@"EaseUIResource.bundle/chat_sender_audio_playing_003"], nil];
+    NSArray *array = [[NSArray alloc] initWithObjects: [UIImage imageNamed:@"chat_sender_audio_playing_full"],[UIImage imageNamed:@"chat_sender_audio_playing_000"], [UIImage imageNamed:@"chat_sender_audio_playing_001"], [UIImage imageNamed:@"chat_sender_audio_playing_002"], [UIImage imageNamed:@"chat_sender_audio_playing_003"], nil];
     
     [[EaseBaseMessageCell appearance] setSendMessageVoiceAnimationImages: array];
     
-    NSArray *array1 = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"EaseUIResource.bundle/chat_receiver_audio_playing_full"],[UIImage imageNamed:@"EaseUIResource.bundle/chat_receiver_audio_playing000"], [UIImage imageNamed:@"EaseUIResource.bundle/chat_receiver_audio_playing001"], [UIImage imageNamed:@"EaseUIResource.bundle/chat_receiver_audio_playing002"], [UIImage imageNamed:@"EaseUIResource.bundle/chat_receiver_audio_playing003"], nil];
+    NSArray *array1 = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"chat_receiver_audio_playing_full"],[UIImage imageNamed:@"chat_receiver_audio_playing000"], [UIImage imageNamed:@"chat_receiver_audio_playing001"], [UIImage imageNamed:@"chat_receiver_audio_playing002"], [UIImage imageNamed:@"chat_receiver_audio_playing003"], nil];
     
     [[EaseBaseMessageCell appearance] setRecvMessageVoiceAnimationImages: array1];
     
@@ -1893,7 +1893,7 @@ typedef enum : NSUInteger {
         }
         else{
             model = [[EaseMessageModel alloc] initWithMessage:message];
-            model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
+            model.avatarImage = [UIImage imageNamed:@"user"];
             model.failImageName = @"imageDownloadFail";
         }
         
@@ -2151,7 +2151,7 @@ typedef enum : NSUInteger {
                     }
                     else{
                         model = [[EaseMessageModel alloc] initWithMessage:message];
-                        model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
+                        model.avatarImage = [UIImage imageNamed:@"user"];
                         model.failImageName = @"imageDownloadFail";
                     }
                     
@@ -2176,7 +2176,7 @@ typedef enum : NSUInteger {
         }
         else{
             model = [[EaseMessageModel alloc] initWithMessage:aMessage];
-            model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
+            model.avatarImage = [UIImage imageNamed:@"user"];
             model.failImageName = @"imageDownloadFail";
         }
         if (model) {
