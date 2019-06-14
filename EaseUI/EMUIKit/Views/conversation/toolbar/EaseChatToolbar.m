@@ -47,7 +47,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [self initWithFrame:frame horizontalPadding:8 verticalPadding:5 inputViewMinHeight:36 inputViewMaxHeight:150 type:EMChatToolbarTypeGroup];
+    self = [self initWithFrame:frame horizontalPadding:8 verticalPadding:5 inputViewMinHeight:36 inputViewMaxHeight:190 type:EMChatToolbarTypeGroup];
     if (self) {
         
     }
@@ -58,7 +58,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
                          type:(EMChatToolbarType)type
 {
-    self = [self initWithFrame:frame horizontalPadding:8 verticalPadding:5 inputViewMinHeight:36 inputViewMaxHeight:150 type:type];
+    self = [self initWithFrame:frame horizontalPadding:8 verticalPadding:5 inputViewMinHeight:36 inputViewMaxHeight:190 type:type];
     if (self) {
         
     }

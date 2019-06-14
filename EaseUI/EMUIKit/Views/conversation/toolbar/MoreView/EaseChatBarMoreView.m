@@ -12,7 +12,7 @@
 
 #import "EaseChatBarMoreView.h"
 
-#define CHAT_BUTTON_SIZE CGSizeMake(50,60)
+#define CHAT_BUTTON_SIZE CGSizeMake(60,70)
 #define INSETS 10
 #define MOREVIEW_COL 4
 #define MOREVIEW_ROW 2
@@ -123,8 +123,8 @@
     _audioCallButton.tag = MOREVIEW_BUTTON_TAG + 3;
     [_scrollview addSubview:_audioCallButton];
     
-    _videoCallButton = [self btnWithImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_videoCall"]
-                         highlightedImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_videoCallSelected"]
+    _videoCallButton = [self btnWithImage:[UIImage imageNamed:@"chatBar_colorMore_videoCall"]
+                         highlightedImage:[UIImage imageNamed:@"chatBar_colorMore_videoCallSelected"]
                                     title:@"视频"];
     [_videoCallButton setFrame:CGRectMake(insets, 10 * 2 + CHAT_BUTTON_SIZE.height + 10, CHAT_BUTTON_SIZE.width , CHAT_BUTTON_SIZE.height)];
     [_videoCallButton addTarget:self action:@selector(takeVideoCallAction) forControlEvents:UIControlEventTouchUpInside];
@@ -133,7 +133,7 @@
     [_scrollview addSubview:_videoCallButton];
 
     CGRect frame = self.frame;
-    frame.size.height = 150;
+    frame.size.height = 190;
     self.frame = frame;
     _scrollview.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
     _pageControl.frame = CGRectMake(0, CGRectGetHeight(frame) - 20, CGRectGetWidth(frame), 20);
@@ -172,7 +172,7 @@
     [_scrollview setContentSize:CGSizeMake(CGRectGetWidth(self.frame) * (page + 1), CGRectGetHeight(self.frame))];
     [_pageControl setNumberOfPages:page + 1];
     if (_maxIndex >=5) {
-        frame.size.height = 150;
+        frame.size.height = 190;
         _scrollview.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
         _pageControl.frame = CGRectMake(0, CGRectGetHeight(frame) - 20, CGRectGetWidth(frame), 20);
     }
@@ -220,7 +220,7 @@
     }
     _maxIndex--;
     if (_maxIndex >=5) {
-        frame.size.height = 150;
+        frame.size.height = 190;
     } else {
         frame.size.height = 80;
     }
