@@ -90,7 +90,7 @@
     _photoButton = [self btnWithImage:[UIImage imageNamed:@"chatBar_colorMore_photo"]
                      highlightedImage:[UIImage imageNamed:@"chatBar_colorMore_photoSelected"]
                                 title:@"相册"];
-
+    
     _photoButton.accessibilityIdentifier = @"image";
     [_photoButton setFrame:CGRectMake(insets, 10, CHAT_BUTTON_SIZE.width , CHAT_BUTTON_SIZE.height)];
     [_photoButton addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
@@ -115,25 +115,26 @@
     _maxIndex = 2;
     [_scrollview addSubview:_takePicButton];
     
-    _audioCallButton = [self btnWithImage:[UIImage imageNamed:@"chatBar_colorMore_fileCall"]
-                         highlightedImage:[UIImage imageNamed:@"chatBar_colorMore_fileCallSelected"]
-                                    title:@"文件"];
-    [_audioCallButton setFrame:CGRectMake(insets * 4 + CHAT_BUTTON_SIZE.width * 3, 10, CHAT_BUTTON_SIZE.width , CHAT_BUTTON_SIZE.height)];
-    [_audioCallButton addTarget:self action:@selector(takeAudioCallAction) forControlEvents:UIControlEventTouchUpInside];
-    _audioCallButton.tag = MOREVIEW_BUTTON_TAG + 3;
-    [_scrollview addSubview:_audioCallButton];
-    
-    _videoCallButton = [self btnWithImage:[UIImage imageNamed:@"chatBar_colorMore_videoCall"]
+    _audioCallButton = [self btnWithImage:[UIImage imageNamed:@"chatBar_colorMore_videoCall"]
                          highlightedImage:[UIImage imageNamed:@"chatBar_colorMore_videoCallSelected"]
                                     title:@"视频"];
-    [_videoCallButton setFrame:CGRectMake(insets, 10 * 2 + CHAT_BUTTON_SIZE.height + 10, CHAT_BUTTON_SIZE.width , CHAT_BUTTON_SIZE.height)];
-    [_videoCallButton addTarget:self action:@selector(takeVideoCallAction) forControlEvents:UIControlEventTouchUpInside];
-    _videoCallButton.tag =MOREVIEW_BUTTON_TAG + 4;
-    _maxIndex = 4;
-    [_scrollview addSubview:_videoCallButton];
-
+    [_audioCallButton setFrame:CGRectMake(insets * 4 + CHAT_BUTTON_SIZE.width * 3, 10, CHAT_BUTTON_SIZE.width , CHAT_BUTTON_SIZE.height)];
+    [_audioCallButton addTarget:self action:@selector(takeVideoCallAction) forControlEvents:UIControlEventTouchUpInside];
+    _audioCallButton.tag = MOREVIEW_BUTTON_TAG + 3;
+    _maxIndex = 3;
+    [_scrollview addSubview:_audioCallButton];
+    
+    //    _videoCallButton = [self btnWithImage:[UIImage imageNamed:@"chatBar_colorMore_videoCall"]
+    //                         highlightedImage:[UIImage imageNamed:@"chatBar_colorMore_videoCallSelected"]
+    //                                    title:@"视频"];
+    //    [_videoCallButton setFrame:CGRectMake(insets, 10 * 2 + CHAT_BUTTON_SIZE.height + 10, CHAT_BUTTON_SIZE.width , CHAT_BUTTON_SIZE.height)];
+    //    [_videoCallButton addTarget:self action:@selector(takeVideoCallAction) forControlEvents:UIControlEventTouchUpInside];
+    //    _videoCallButton.tag =MOREVIEW_BUTTON_TAG + 4;
+    //    _maxIndex = 4;
+    //    [_scrollview addSubview:_videoCallButton];
+    
     CGRect frame = self.frame;
-    frame.size.height = 190;
+    frame.size.height = 100;
     self.frame = frame;
     _scrollview.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
     _pageControl.frame = CGRectMake(0, CGRectGetHeight(frame) - 20, CGRectGetWidth(frame), 20);
@@ -148,8 +149,11 @@
     [btn setTitle:aTitle forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+    btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
     btn.imageEdgeInsets = UIEdgeInsetsMake(-7, 0, 3, 0);
     btn.titleEdgeInsets = UIEdgeInsetsMake(37, -60, -37, 0);
+    
     return btn;
 }
 
@@ -256,37 +260,37 @@
 }
 
 /*
-- (void)setMoreViewButtonImages:(NSArray *)moreViewButtonImages
-{
-    _moreViewButtonImages = moreViewButtonImages;
-    if ([_moreViewButtonImages count] > 0) {
-        for (UIView *view in self.subviews) {
-            if ([view isKindOfClass:[UIButton class]]) {
-                UIButton *button = (UIButton *)view;
-                if (button.tag < [_moreViewButtonImages count]) {
-                    NSString *imageName = [_moreViewButtonImages objectAtIndex:button.tag];
-                    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-                }
-            }
-        }
-    }
-}
-
-- (void)setMoreViewButtonHignlightImages:(NSArray *)moreViewButtonHignlightImages
-{
-    _moreViewButtonHignlightImages = moreViewButtonHignlightImages;
-    if ([_moreViewButtonHignlightImages count] > 0) {
-        for (UIView *view in self.subviews) {
-            if ([view isKindOfClass:[UIButton class]]) {
-                UIButton *button = (UIButton *)view;
-                if (button.tag < [_moreViewButtonHignlightImages count]) {
-                    NSString *imageName = [_moreViewButtonHignlightImages objectAtIndex:button.tag];
-                    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateHighlighted];
-                }
-            }
-        }
-    }
-}*/
+ - (void)setMoreViewButtonImages:(NSArray *)moreViewButtonImages
+ {
+ _moreViewButtonImages = moreViewButtonImages;
+ if ([_moreViewButtonImages count] > 0) {
+ for (UIView *view in self.subviews) {
+ if ([view isKindOfClass:[UIButton class]]) {
+ UIButton *button = (UIButton *)view;
+ if (button.tag < [_moreViewButtonImages count]) {
+ NSString *imageName = [_moreViewButtonImages objectAtIndex:button.tag];
+ [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+ }
+ }
+ }
+ }
+ }
+ 
+ - (void)setMoreViewButtonHignlightImages:(NSArray *)moreViewButtonHignlightImages
+ {
+ _moreViewButtonHignlightImages = moreViewButtonHignlightImages;
+ if ([_moreViewButtonHignlightImages count] > 0) {
+ for (UIView *view in self.subviews) {
+ if ([view isKindOfClass:[UIButton class]]) {
+ UIButton *button = (UIButton *)view;
+ if (button.tag < [_moreViewButtonHignlightImages count]) {
+ NSString *imageName = [_moreViewButtonHignlightImages objectAtIndex:button.tag];
+ [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateHighlighted];
+ }
+ }
+ }
+ }
+ }*/
 
 #pragma mark - UIScrollViewDelegate
 
